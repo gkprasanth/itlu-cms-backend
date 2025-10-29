@@ -110,6 +110,16 @@ exports.updateAboutSection = async (req, res) => {
   }
 };
 
+
+exports.createAboutSection = async (req, res) => {
+  try {
+    const about = await AboutSection.create(req.body);
+    res.status(201).json(about);
+  } catch {
+    res.status(500).json({ error: "Failed to create about section" });
+  }
+};
+
 // How We Work Controller
 exports.getAllHowWeWorkItems = async (req, res) => {
   try {
@@ -285,6 +295,15 @@ exports.getContactSection = async (req, res) => {
   }
 };
 
+exports.createContactSection = async (req, res) => {
+  try {
+    const contact = await ContactSection.create(req.body);
+    res.status(201).json(contact);
+  } catch {
+    res.status(500).json({ error: "Failed to create contact section" });
+  }
+};
+
 exports.updateContactSection = async (req, res) => {
   try {
     const contact = await ContactSection.findOneAndUpdate({}, req.body, { 
@@ -305,6 +324,15 @@ exports.getFooterContact = async (req, res) => {
     res.json(footer);
   } catch {
     res.status(500).json({ error: "Failed to fetch footer contact" });
+  }
+};
+
+exports.createFooterContact = async (req, res) => {
+  try {
+    const footer = await FooterContact.create(req.body);
+    res.status(201).json(footer);
+  } catch {
+    res.status(500).json({ error: "Failed to create footer contact" });
   }
 };
 

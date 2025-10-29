@@ -21,6 +21,7 @@ async function registerRoutes(app) {
   // About Section Routes
   app.get("/api/about-section", landingController.getAboutSection);
   app.put("/api/about-section", landingController.updateAboutSection);
+  app.post("/api/about-section", landingController.createAboutSection);
 
   // How We Work Routes
   app.get("/api/how-we-work", landingController.getAllHowWeWorkItems);
@@ -48,10 +49,12 @@ async function registerRoutes(app) {
 
   // Contact Section Routes
   app.get("/api/contact-section", landingController.getContactSection);
+  app.post("/api/contact-section", landingController.createContactSection);
   app.put("/api/contact-section", landingController.updateContactSection);
 
   // Footer Contact Routes
   app.get("/api/footer-contact", landingController.getFooterContact);
+  app.post("/api/footer-contact", landingController.createFooterContact);
   app.put("/api/footer-contact", landingController.updateFooterContact);
 
 
